@@ -29,18 +29,32 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let firstName = variables.name ? variables.name : " - ";
+  let lastName = variables.lastname ? variables.lastname : " - ";
+  let twit = variables.twitter ? variables.twitter : " - ";
+  let git = variables.github ? variables.github : "";
+  let Roles = variables.role ? variables.role : "Unemployeed";
+  let linked = variables.linkedin ? variables.linkedin : "";
+  let insta = variables.instagram ? variables.instagram : "";
+  let City = variables.city ? variables.city : "City";
+  let Country = variables.country ? variables.country : "Country";
+  let Position = variables.socialMediaPosition
+    ? variables.socialMediaPosition
+    : "";
+
+  //${variables.name ? variable.name : "no name"}
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${firstName} ${lastName}</h1>
+          <h2>${Roles}</h2>
+          <h3>${City}, ${Country}</h3>
+          <ul class="${Position}">
+            <li><a href="https://twitter.com/${twit}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${git}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/${linked}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${insta}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
